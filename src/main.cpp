@@ -2359,7 +2359,7 @@ bool LoadBlockIndex(bool fAllowNew)
         }
 
         if (IsCalculatingGenesisBlockHash && (block.GetHash() != hashGenesisBlock)) {
-			      block.nNonce = 0;
+            block.nNonce = 0;
 
             // This will figure out a valid hash and Nonce if you're
             // creating a different genesis block:
@@ -2372,10 +2372,11 @@ bool LoadBlockIndex(bool fAllowNew)
                     printf("NONCE WRAPPED, incrementing time");
                     ++block.nTime;
                 }
-		            if (block.nNonce % 10000 == 0)
-		            {
-		                printf("nonce %08u: hash = %s \n", block.nNonce, block.GetHash().ToString().c_str());
-		            }
+
+                if (block.nNonce % 10000 == 0)
+                {
+                    printf("nonce %08u: hash = %s \n", block.nNonce, block.GetHash().ToString().c_str());
+                }
             }
         }
 
